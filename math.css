@@ -1,0 +1,23 @@
+.tax-form{
+background:#b0aff0;
+text-align:center;
+padding:30px;
+border:2px solid gray;
+margin:5px;
+}
+
+.test-form{
+background:rgb(43, 235, 209);
+text-align:left;
+padding:0px 0px 0px 20px;
+border:2px solid gray;
+margin:5px;
+}
+
+.math-form{
+background:rgb(83, 132, 238);
+text-align:left;
+padding:0px 0px 0px 20px;
+border:2px solid gray;
+margin:5px;
+}
