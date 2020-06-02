@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head><!--HPに必要な要素、３つの部分から成り立つ-->
+    <meta charset="utf-8"><!--文字コードを決定する、ここも定型表現-->
+    <title>計算シート</title><!--HPのタイトル-->
+    <link rel="stylesheet" href="css/math.css"><!--CSSを読み込むために必要なコード-->
+    <style>
+      .box{
+        background-color:#331b1d;
+        width:80px;
+        height:80px;
+        cursor:pointer;
+        transition:1s;
+      }
+      .circle.win{
+        background-color: rgb(243, 22, 225);
+        width:80px;
+        height:80px;
+        cursor:pointer;
+        transition:1s;
+        border-radius:80%;
+        transform:rotate(360deg);
+      }
+      .lose{
+        transform:scale(0.9);
+      }
+      .change-color{
+        color:#ff0000;
+        background-color:gray;
+      }
+      .bmi-form{
+        background:#eeeeee;
+        text-align:center;
+        padding:30px;
+        border:2px solid gray;
+        margin:5px;
+      }
+      </style>
+  </head>
+  
+  <body>    
+ 
+    <!-- <div class="bmi-form">
+  
+        <p id="change-color">身長：<input type="text" id="height">(cm)</p>
+        <span id="msg1" style="color: #ff0000;"></span>
+        <p>体重：<input type="text" id="weight">(kg)</p>
+        <span id="msg2" style="color: #ff0000;"></span>
+  
+        <p><input type="button" value="BMI計算" onclick="bmi_cal();"></p>
+        <span id="msg3"></span>
+        <noscript>このブラウザはスクリプトが実行しないように制限されています。</noscript>
+  
+    </div> -->
+      
+    <!-- <div class="tax-form">
+  
+      <form action="#" name="form1">
+  
+        <table>
+  
+          <tr>
+            <th>商品名</th>
+            <th>単価</th>
+            <th>数量</th>
+            <th>金額</th>
+          </tr>
+  
+          <tr>
+            <td>サンプル1</td>
+            <td align="right">500円</td>
+            <td><select name="goods1" onChange="keisan()">
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            </select></td>
+            <td><input type="text" name="field1" size="8" value="0"> 円</td>
+          </tr>
+  
+          <tr>
+            <td>サンプル2</td>
+            <td align="right">1,000円</td>
+            <td><select name="goods2" onChange="keisan()">
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            </select></td>
+            <td><input type="text" name="field2" size="8" value="0"> 円</td>
+          </tr>
+  
+          <tr>
+            <td>サンプル3</td>
+            <td align="right">3,000円</td>
+            <td><select name="goods3" onChange="keisan()">
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            </select></td>
+            <td><input type="text" name="field3" size="8" value="0"> 円</td>
+          </tr>
+  
+          <tr>
+            <td align="right"></td><td></td><td><strong>合計</strong></td>
+            <td><input type="text" name="field_total" size="8" value="0"> 円</td>
+          </tr>
+  
+        </table>
+            
+      </form>
+    
+    </div> -->
+  
+    <div class="test-form">
+      <h3>■加振力計算</h3>
+      <form>
+          <p>サンプル質量：<input class="math-box" type="text" id="mass" onfocus="this.select()">kg</p>
+          <p>サンプル取り付け治具質量：<input class="math-box" type="text" id="mountingJig" onfocus="this.select()">kg</p>
+          <p>垂直・水平テーブル質量：<input class="math-box" type="text" id="table" onfocus="this.select()">kg</p>
+          <p>可動部質量：<input class="math-box" type="text" id="coil" onfocus="this.select()">kg</p>
+          <h5>※↑設置しない箇所は”0”を入力してください</h5>
+          <p>最大加速度：<input class="math-box" type="text" id="accel" onfocus="this.select()">m/s^2</p>
+          <p>加振力：<input class="math-box" type="text" id="power" onfocus="this.select()">kN</p>
+          <p><button id="button">「正弦波」「ランダム」の加振力を計算する</button> <button id="button2">「衝撃試験」の加振力を計算する</button><p>
+          <p>結果：<input class="math-box" type="text" id="result" onfocus="this.select()" size="10px">%
+            <input id="judge" type="text" placeholder="ここに判定が出ます" size="38px"></p>
+      </form>   
+    </div>
+
+    <div class="math-form">
+      <h3>■座標計算(求めたい箇所を空白にし”計算する”のボタンを押してください)</h3>
+      <form>
+      <p>X1：<input  type="text" id="X1" onfocus="this.select()">Hz</p>
+      <p><button id="X1but">X1を計算する</button><p>
+      <p>Y1：<input  type="text" id="Y1" onfocus="this.select()">g^2/Hz</p>
+      <p><button id="Y1but">Y1を計算する</button><p>
+      <p>X2：<input  type="text" id="X2" onfocus="this.select()">Hz</p>
+      <p><button id="X2but">X2を計算する</button><p>
+      <p>Y2：<input  type="text" id="Y2" onfocus="this.select()">g^2/Hz</p>
+      <p><button id="Y2but">Y2を計算する</button><p>
+      <p>傾き：<input type="text" id="A" onfocus="this.select()">dB/octave</p>
+      <p><button id="Abut">Aを計算する</button><p>
+      </form>
+    </div>
+
+  <script src="Javascript/math.js"></script>
+  
+  </body>
+  
+</html>
